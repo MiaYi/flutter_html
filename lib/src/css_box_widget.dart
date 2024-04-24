@@ -85,7 +85,11 @@ class CssBoxWidget extends StatelessWidget {
                   child: child,
                 ),
         ),
-        if (markerBox != null) Text.rich(markerBox),
+        if (markerBox != null)
+          Text.rich(
+            markerBox,
+            textScaler: TextScaler.noScaling,
+          ),
       ],
     );
   }
@@ -115,6 +119,7 @@ class CssBoxWidget extends StatelessWidget {
       textDirection: style.direction,
       maxLines: style.maxLines,
       overflow: style.textOverflow ?? TextOverflow.clip,
+      textScaler: TextScaler.noScaling,
     );
   }
 
@@ -134,6 +139,7 @@ class CssBoxWidget extends StatelessWidget {
                     text: style.marker!.content.replacementContent!,
                     style: style.marker!.style?.generateTextStyle(),
                   ),
+                  textScaler: TextScaler.noScaling,
                 );
               }
 
